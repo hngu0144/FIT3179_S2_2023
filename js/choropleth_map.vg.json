@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Wealth",
     "width": 700,
     "height": 400,
     "projection": {"type": "equalEarth"},
@@ -30,7 +29,11 @@
       },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country Name"},
-        {"field": "country_count", "type": "quantitative", "title": "Number of billionaires"}
+        {"field": "country_count", "type": "quantitative", "title": "Number of billionaires"},
+        {"field": "total_wealth_mil", "type": "quantitative", "title": "Total wealth"},
+        {"field": "population", "type": "quantitative", "title": "Population"}
+
+
       ]
     }
   }
