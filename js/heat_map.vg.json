@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "birthYear",
+        "range": [
+          1930,
+          1990
+        ]
+      }
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "y": {
+      "field": "industries",
+      "type": "nominal",
+      "title": "Industry"
+    },
+    "x": {
+      "field": "birthYear",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "color": {
+      "aggregate": "count",
+      "field": "birthYear",
+      "title": "Number of Billionaires",
+      "scale": {
+        "domain": [
+          10,
+          20,
+          30
+        ],
+        "range": [
+          "#FFB55C",
+          "#BF8845",
+          "#9F7139",
+          "#805A2E"
+        ]
+      }
+    }
+  },
+  "config": {
+    "axis": {
+      "grid": true,
+      "tickBand": "extent"
+    }
+  }
+}
