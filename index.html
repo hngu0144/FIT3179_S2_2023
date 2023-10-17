@@ -108,6 +108,21 @@ body {
           dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
       </div>
 
+
+      <div class="pure-u-1-1">
+        <div id="donut_chart" ></div>
+      </div>  
+      <div class="pure-u-1-2">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
+      </div>
+      <div class="pure-u-1-2">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed.</p>
+      </div>
+
     </div>
 
   </div>
@@ -128,6 +143,12 @@ body {
 
     var pyramid_chart = "js/pyramid_chart.vg.json";
     vegaEmbed( '#pyramid_chart', pyramid_chart ,{ "actions": false }).then( function ( result )
+    {
+
+    } ).catch( console.error );
+
+    var donut_chart = "js/donut_chart.vg.json";
+    vegaEmbed( '#donut_chart', donut_chart ,{ "actions": false }).then( function ( result )
     {
 
     } ).catch( console.error );
