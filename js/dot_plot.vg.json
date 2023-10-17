@@ -1,14 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title":"Country's Mean Tertiary and education enrolment",
-  "width": 800,
+  "width": 650,
   "height": 400,
   "data": {
     "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"
   },
-  
+  "transform": [
+    {"calculate": "replace(datum['gross_tertiary_education_enrollment'], ' ', '_')", "as": "Mean Tertiary Enrolment"},
+    {"calculate": "replace(datum['gross_primary_education_enrollment_country'], ' ', '_')", "as": "Mean Primary Enrolment"}],
+
   "repeat": {
-    "layer": ["gross_tertiary_education_enrollment", "gross_primary_education_enrollment_country"]
+    "layer": ["Mean Tertiary Enrolment", "Mean Primary Enrolment"]
   },
   "spec": {
     "mark": "circle",
@@ -27,8 +30,7 @@
       },
       "color": {
         "datum": {"repeat": "layer"},
-        "type": "nominal",
-        "legend": null
+        "type": "nominal"
       },
       "tooltip": [
     {
