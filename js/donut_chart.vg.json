@@ -16,7 +16,7 @@
     {
       "field": "selfMade",
       "type": "nominal",
-      "title": "Country"
+      "title": "Billionaire Type"
     }
   ]
   }
