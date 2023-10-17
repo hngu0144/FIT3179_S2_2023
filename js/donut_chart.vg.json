@@ -1,16 +1,24 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 700,
-    "height": 400,
-    "title": "Self-made versus Inherited Distribution",
-    "description": "A simple donut chart with embedded data.",
-    "data": {"url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"},
-      "transform": [
-        {"calculate": "datum.selfMade == 'TRUE' ? 'Self-made' : 'Inherited'", "as": "selfMade"}
-      ],
-    "mark": {"type": "arc", "innerRadius": 50},
-    "encoding": {
-      "theta": {"field": "finalWorth", "type": "quantitative"},
-      "color": {"field": "selfMade", "type": "nominal", "title": ""}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 400,
+  "title": "Self-made versus Inherited Distribution",
+  "description": "A simple donut chart with embedded data.",
+  "data": {"url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"},
+    "transform": [
+      {"calculate": "datum.selfMade == 'TRUE' ? 'Self-made' : 'Inherited'", "as": "selfMade"}
+    ],
+  "mark": {"type": "arc", "innerRadius": 50},
+  "encoding": {
+    "theta": {"field": "finalWorth", "type": "quantitative"},
+    "color": {"field": "selfMade", "type": "nominal", "title": ""},
+    "tooltip": [
+    {
+      "field": "selfMade",
+      "type": "nominal",
+      "title": "Country"
     }
+  ]
   }
+  
+}

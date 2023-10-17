@@ -46,7 +46,24 @@
           "#805A2E"
         ]
       }
-    }
+    },
+    "tooltip": [
+      {
+        "field": "birthYear",
+        "type": "nominal",
+        "title": "Year"
+      },
+      {
+        "field": "industries",
+        "type": "nominal",
+        "title": "Industry"
+      },
+      {
+        "field": "__count",
+        "type": "quantitative",
+        "title": "Number of Billionaires"
+      }
+    ]
   },
   "config": {
     "axis": {

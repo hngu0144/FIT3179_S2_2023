@@ -15,7 +15,20 @@
     "y": {
       "aggregate": "average",
       "field": "life_expectancy_country",
-      "title": "Life expectancy (years)"
-    }
+      "title": "Life Expectancy (years)"
+    },
+    "tooltip": [
+      {
+        "field": "country",
+        "type": "nominal",
+        "title": "Country"
+      },
+      {
+        "field": "life_expectancy_country",
+        "type": "quantitative",
+        "title": "Life Expectancy"
+      }
+    ]
   }
+  
 }

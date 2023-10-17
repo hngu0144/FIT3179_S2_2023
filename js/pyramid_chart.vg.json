@@ -1,70 +1,87 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A population pyramid for the US in 2000.",
-    "title": "Gender Wealth Distribution",
-    "data": {
-      "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data_age_gender_finalWorth.csv"
-    },
-    "transform": [
-      {"filter": {"field": "age", "range": [18, 101]}},
-      {"calculate": "datum.gender == 'F' ? 'Female' : 'Male'", "as": "gender"}
-    ],
-    "spacing": 0,
-    "hconcat": [
-      {
-        "transform": [{"filter": {"field": "gender", "equal": "Female"}}],
-        "title": "Female",
-        "mark": "bar",
-        "encoding": {
-          "y": {"field": "age", "axis": null, "sort": "descending"},
-          "x": {
-            "aggregate": "sum",
-            "field": "finalWorth",
-            "title": "Networth",
-            "axis": {"format": "s"},
-            "sort": "descending"
-          },
-          "color": {
-            "field": "gender",
-            "scale": {"range": ["#FE2323", "#1F8ADE"]},
-            "legend": null
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Gender Wealth Distribution",
+  "data": {
+    "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data_age_gender_finalWorth.csv"
+  },
+  "transform": [
+    {"filter": {"field": "age", "range": [18, 101]}},
+    {"calculate": "datum.gender == 'F' ? 'Female' : 'Male'", "as": "gender"}
+  ],
+  "spacing": 0,
+  "hconcat": [
+    {
+      "transform": [{"filter": {"field": "gender", "equal": "Female"}}],
+      "title": "Female",
+      "mark": "bar",
+      "encoding": {
+        "y": {"field": "age", "axis": null, "sort": "descending"},
+        "x": {
+          "aggregate": "sum",
+          "field": "finalWorth",
+          "title": "Net Worth",
+          "axis": {"format": "s"},
+          "sort": "descending"
+        },
+        "color": {
+          "field": "gender",
+          "scale": {"range": ["#FE2323", "#1F8ADE"]},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "age", "type": "quantitative", "title": "Age"},
+          {
+            "field": "sum_finalWorth",
+            "type": "quantitative",
+            "title": "Net Worth"
           }
-        }
-      },
-      {
-        "width": 20,
-        "view": {"stroke": null},
-        "mark": {"type": "text", "align": "center"},
-        "encoding": {
-          "y": {
-            "field": "age",
-            "type": "ordinal",
-            "axis": null,
-            "sort": "descending"
-          },
-          "text": {"field": "age", "type": "quantitative"}
-        }
-      },
-      {
-        "transform": [{"filter": {"field": "gender", "equal": "Male"}}],
-        "title": "Male",
-        "mark": "bar",
-        "encoding": {
-          "y": {
-            "field": "age",
-            "title": null,
-            "axis": null,
-            "sort": "descending"
-          },
-          "x": {
-            "aggregate": "sum",
-            "field": "finalWorth",
-            "title": "Networth",
-            "axis": {"format": "s"}
-          },
-          "color": {"field": "gender", "legend": null}
-        }
+        ]
       }
-    ],
-    "config": {"view": {"stroke": null}, "axis": {"grid": true}}
-  }
+    },
+    {
+      "width": 20,
+      "view": {"stroke": null},
+      "mark": {"type": "text", "align": "center"},
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "axis": null,
+          "sort": "descending"
+        },
+        "text": {"field": "age", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [{"filter": {"field": "gender", "equal": "Male"}}],
+      "title": "Male",
+      "mark": "bar",
+      "encoding": {
+        "y": {
+          "field": "age",
+          "title": null,
+          "axis": null,
+          "sort": "descending"
+        },
+        "x": {
+          "aggregate": "sum",
+          "field": "finalWorth",
+          "title": "Net Worth",
+          "axis": {"format": "s"}
+        },
+        "color": {"field": "gender", "legend": null},
+        "tooltip": [
+          {"field": "age", "type": "quantitative", "title": "Age"},
+          {
+            "field": "sum_finalWorth",
+            "type": "quantitative",
+            "title": "Net Worth"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {"view": {"stroke": null}, "axis": {"grid": true}}
+}

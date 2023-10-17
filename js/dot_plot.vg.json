@@ -1,34 +1,52 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title":"Country's GDP, CPI and Tax rate",
-    "width": 600,
-    "height": 400,
-    "data": {
-      "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title":"Country's Mean Tertiary and education enrolment",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"
+  },
+  
+  "repeat": {
+    "layer": ["gross_tertiary_education_enrollment", "gross_primary_education_enrollment_country"]
+  },
+  "spec": {
+    "mark": "circle",
+    "encoding": {
+      "x": {
+        "field": "country",
+        "type": "ordinal",
+        "title": "Country"
+      },
+      "y": {
+        "aggregate": "mean",
+        "field": {"repeat": "layer"},
+        "type": "quantitative",
+        "title": "Mean Tertiary and education enrolment",
+        "sort": "-x"
+      },
+      "color": {
+        "datum": {"repeat": "layer"},
+        "type": "nominal",
+        "legend": null
+      },
+      "tooltip": [
+    {
+      "field": "country",
+      "type": "nominal",
+      "title": "Country"
     },
-    
-    "repeat": {
-      "layer": ["gross_tertiary_education_enrollment", "gross_primary_education_enrollment_country"]
+    {
+      "field": "gross_tertiary_education_enrollment",
+      "type": "quantitative",
+      "title": "Mean Gross Tertiary Education Enrolment"
     },
-    "spec": {
-      "mark": "circle",
-      "encoding": {
-        "x": {
-          "field": "country",
-          "type": "ordinal"
-        },
-        "y": {
-          "aggregate": "mean",
-          "field": {"repeat": "layer"},
-          "type": "quantitative",
-          "title": "Mean of US and Worldwide Gross",
-          "sort": "-x"
-        },
-        "color": {
-          "datum": {"repeat": "layer"},
-          "type": "nominal"
-        }
-      }
+    {
+      "field": "gross_primary_education_enrollment_country",
+      "type": "quantitative",
+      "title": "Mean Gross Primary Education Enrolment"
+    }
+  ]
     }
   }
-  
+}
