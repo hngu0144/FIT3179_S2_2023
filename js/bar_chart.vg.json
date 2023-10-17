@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Life expectancy in each country",
+  "width": 800,
+  "data": {"url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data.csv"},
+  "height": {"step": 17},
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "country",
+      "type": "ordinal",
+      "sort": "-y",
+      "title": "Country"
+    },
+    "y": {
+      "aggregate": "average",
+      "field": "life_expectancy_country",
+      "title": "Life expectancy (years)"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title":"Country's GDP, CPI and Tax rate",
+    "width": 700,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/hngu0144/FIT3179_S2_2023/main/data/data_cpi_gdp_tax.csv"
+    },
+    "params": [{"name": "grid", "select": "interval", "bind": "scales"}],
+    "mark": "circle",
+    "encoding": {
+      "x": {"field": "cpi_country", "type": "quantitative","title":"CPI"},
+      "y": {"field": "gdp_country", "type": "quantitative","title":"GDP (in US dollar)"},
+      "size": {"field": "total_tax_rate_country", "type": "quantitative","title": "Tax rate"},
+      "color": {"scale": {"domain": ["total_tax_rate_country"], "range": ["#F1C40F"]}}
+    }
+  }
